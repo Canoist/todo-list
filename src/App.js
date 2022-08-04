@@ -11,10 +11,14 @@ function App() {
     const [searchedTasks, setSearchedTasks] = useState([]);
     const [inputValue, setInputValue] = useState("");
 
-    const handleAddTask = (data) => {
-        setData((prev) => [...prev, data]);
+    function resetFields() {
         setInputValue("");
         setSearchedTasks([]);
+    }
+
+    const handleAddTask = (data) => {
+        setData((prev) => [...prev, data]);
+        resetFields();
     };
 
     const handleChange = (incData) => {
@@ -28,8 +32,7 @@ function App() {
         if (incData.name.toLowerCase().includes(value)) {
             updateList(newData);
         } else {
-            setInputValue("");
-            setSearchedTasks([]);
+            resetFields();
         }
     };
 
