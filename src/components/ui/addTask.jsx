@@ -7,6 +7,7 @@ const AddTask = ({ onAdd }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         onAdd({ name: inputValue, _id: Date.now() });
+        setInputValue("");
     };
     const handleChange = (e) => {
         const { value } = e.target;

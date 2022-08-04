@@ -5,14 +5,13 @@ const TaskList = ({ currentTask, taskList, setCurrent }) => {
     const handleClick = ({ target }) => {
         setCurrent(target.id);
     };
-
     return (
         <ol>
             {taskList.map((task) => (
                 <li
                     key={task._id}
                     id={task._id}
-                    className={currentTask === task._id ? "active" : ""}
+                    className={currentTask?._id === task._id ? "active" : ""}
                     onClick={handleClick}>
                     {task.name}
                 </li>
