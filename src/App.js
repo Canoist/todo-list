@@ -77,7 +77,7 @@ function App() {
         : data;
 
     return (
-        <div>
+        <div className="content">
             <input
                 type="text"
                 className="form-control"

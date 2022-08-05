@@ -23,7 +23,10 @@ const AddTask = ({ onAdd }) => {
                 onChange={handleChange}
                 value={inputValue}
             />
-            <button type="submit" onClick={handleSubmit}>
+            <button
+                className="btn btn-success"
+                type="submit"
+                onClick={handleSubmit}>
                 Создать задачу
             </button>
         </form>
