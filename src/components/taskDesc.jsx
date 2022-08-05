@@ -19,37 +19,35 @@ const TaskDesc = ({ currentTask, onChange, onDelete }) => {
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="taskName" className="form-label">
-                    Название задачи
-                </label>
-                <input
-                    id="taskName"
-                    type="text"
-                    className="form-control"
-                    placeholder="name"
-                    onChange={handleChange}
-                    value={inputName}
-                />
-                <div className="flex-end">
-                    <button
-                        className="btn btn-primary"
-                        type="button"
-                        style={{ marginRight: "0.5rem" }}
-                        onClick={handleSubmit}>
-                        Сохранить
-                    </button>
-                    <button
-                        className="btn btn-danger"
-                        onClick={() => {
-                            onDelete(currentTask._id);
-                        }}>
-                        Delete
-                    </button>
-                </div>
-            </form>
-        </div>
+        <form style={{ margin: "0.5rem" }} onSubmit={handleSubmit}>
+            <label htmlFor="taskName" className="form-label">
+                Название задачи
+            </label>
+            <input
+                id="taskName"
+                type="text"
+                className="form-control"
+                placeholder="name"
+                onChange={handleChange}
+                value={inputName}
+            />
+            <div className="flex-end">
+                <button
+                    className="btn btn-primary"
+                    type="button"
+                    style={{ marginRight: "0.5rem" }}
+                    onClick={handleSubmit}>
+                    Сохранить
+                </button>
+                <button
+                    className="btn btn-danger"
+                    onClick={() => {
+                        onDelete(currentTask._id);
+                    }}>
+                    Delete
+                </button>
+            </div>
+        </form>
     );
 };
 

@@ -6,20 +6,22 @@ const TaskList = ({ currentTask, taskList, setCurrent }) => {
         setCurrent(target.id);
     };
     return (
-        <ol className="list-group list-group-numbered">
-            {taskList.map((task, index) => (
-                <li
-                    key={task._id}
-                    id={task._id}
-                    className={
-                        "list-group-item " +
-                        (currentTask?._id === task._id ? "active" : "")
-                    }
-                    onClick={handleClick}>
-                    {task.name}
-                </li>
-            ))}
-        </ol>
+        <div className="list-group-wrapper">
+            <ol className="list-group list-group-numbered">
+                {taskList.map((task, index) => (
+                    <li
+                        key={task._id}
+                        id={task._id}
+                        className={
+                            "list-group-item " +
+                            (currentTask?._id === task._id ? "active" : "")
+                        }
+                        onClick={handleClick}>
+                        {task.name}
+                    </li>
+                ))}
+            </ol>
+        </div>
     );
 };
 

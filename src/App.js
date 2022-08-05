@@ -34,6 +34,7 @@ function App() {
         } else {
             resetFields();
         }
+        setCurrentTask();
     };
 
     const updateList = (incData) => {
@@ -79,29 +80,40 @@ function App() {
     return (
         <div className="wrapper">
             <div className="content">
-                <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Search..."
-                    onChange={handleSearch}
-                    value={inputValue}
-                />
-                <AddTask onAdd={handleAddTask} />
+                <div className="header-content">
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Search..."
+                        onChange={handleSearch}
+                        value={inputValue}
+                    />
+                    <AddTask onAdd={handleAddTask} />
+                </div>
                 <div>
-                    {!!data.length && (
-                        <TaskList
-                            taskList={filteredTasks}
-                            currentTask={currentTask}
-                            setCurrent={handleSelectTask}
-                        />
-                    )}
-                    {currentTask && (
-                        <TaskDesc
-                            currentTask={currentTask}
-                            onChange={handleChange}
-                            onDelete={handleDelete}
-                        />
-                    )}
+                    <div className="flex-nowrap">
+                        {!!data.length && (
+                            <TaskList
+                                taskList={filteredTasks}
+                                currentTask={currentTask}
+                                setCurrent={handleSelectTask}
+                            />
+                        )}
+                        <span className="handler-resize"></span>
+                        {currentTask ? (
+                            <TaskDesc
+                                currentTask={currentTask}
+                                onChange={handleChange}
+                                onDelete={handleDelete}
+                            />
+                        ) : (
+                            !!data.length && (
+                                <p style={{ margin: "0.5rem" }}>
+                                    Выберете задачу из списка
+                                </p>
+                            )
+                        )}
+                    </div>
                 </div>
             </div>
         </div>
