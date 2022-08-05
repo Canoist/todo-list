@@ -6,12 +6,15 @@ const TaskList = ({ currentTask, taskList, setCurrent }) => {
         setCurrent(target.id);
     };
     return (
-        <ol>
-            {taskList.map((task) => (
+        <ol className="list-group list-group-numbered">
+            {taskList.map((task, index) => (
                 <li
                     key={task._id}
                     id={task._id}
-                    className={currentTask?._id === task._id ? "active" : ""}
+                    className={
+                        "list-group-item " +
+                        (currentTask?._id === task._id ? "active" : "")
+                    }
                     onClick={handleClick}>
                     {task.name}
                 </li>

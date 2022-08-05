@@ -15,13 +15,13 @@ const AddTask = ({ onAdd }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                type="text"
+        <form className="" onSubmit={handleSubmit}>
+            <textarea
                 className="form-control"
                 placeholder="Add task..."
                 onChange={handleChange}
                 value={inputValue}
+                rows="3"
             />
             <button
                 className="btn btn-success"

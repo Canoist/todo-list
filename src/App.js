@@ -77,29 +77,31 @@ function App() {
         : data;
 
     return (
-        <div className="content">
-            <input
-                type="text"
-                className="form-control"
-                placeholder="Search..."
-                onChange={handleSearch}
-                value={inputValue}
-            />
-            <AddTask onAdd={handleAddTask} />
-            {!!data.length && (
-                <TaskList
-                    taskList={filteredTasks}
-                    currentTask={currentTask}
-                    setCurrent={handleSelectTask}
+        <div className="wrapper">
+            <div className="content">
+                <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Search..."
+                    onChange={handleSearch}
+                    value={inputValue}
                 />
-            )}
-            {currentTask && (
-                <TaskDesc
-                    currentTask={currentTask}
-                    onChange={handleChange}
-                    onDelete={handleDelete}
-                />
-            )}
+                <AddTask onAdd={handleAddTask} />
+                {!!data.length && (
+                    <TaskList
+                        taskList={filteredTasks}
+                        currentTask={currentTask}
+                        setCurrent={handleSelectTask}
+                    />
+                )}
+                {currentTask && (
+                    <TaskDesc
+                        currentTask={currentTask}
+                        onChange={handleChange}
+                        onDelete={handleDelete}
+                    />
+                )}
+            </div>
         </div>
     );
 }
