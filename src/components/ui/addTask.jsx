@@ -6,7 +6,7 @@ const AddTask = ({ onAdd }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        onAdd({ name: inputValue, _id: Date.now() });
+        onAdd({ name: inputValue, _id: Date.now(), status: "wait" });
         setInputValue("");
     };
     const handleChange = (e) => {

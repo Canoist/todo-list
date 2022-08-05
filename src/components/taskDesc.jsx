@@ -1,8 +1,19 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
+const optionsArray = [
+    { name: "Ожидание", value: "wait" },
+    { name: "В процессе", value: "atWork" },
+    { name: "Выполнена", value: "done" },
+];
+
 const TaskDesc = ({ currentTask, onChange, onDelete }) => {
     const [inputName, setInputName] = useState(currentTask.name);
+    const [status, setStatus] = useState(currentTask.status);
+
+    useEffect(() => {
+        setStatus(currentTask.status);
+    }, [currentTask]);
 
     useEffect(() => {
         setInputName(currentTask.name);
@@ -15,7 +26,7 @@ const TaskDesc = ({ currentTask, onChange, onDelete }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onChange({ name: inputName, _id: currentTask._id });
+        onChange({ name: inputName, _id: currentTask._id, status: status });
     };
 
     return (
@@ -35,6 +46,22 @@ const TaskDesc = ({ currentTask, onChange, onDelete }) => {
                 rows={3}
                 style={{ width: "100%" }}
             />
+            <select
+                className="select"
+                value={status}
+                onChange={({ target }) => {
+                    setStatus(target.value);
+                }}>
+                <option disabled value="">
+                    Статус
+                </option>
+                {optionsArray &&
+                    optionsArray.map((option) => (
+                        <option value={option.value} key={option.value}>
+                            {option.name}
+                        </option>
+                    ))}
+            </select>
             <div className="flex-end">
                 <button
                     className="btn btn-primary"

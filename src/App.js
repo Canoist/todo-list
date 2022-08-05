@@ -22,6 +22,7 @@ function App() {
     };
 
     const handleChange = (incData) => {
+        console.log(incData);
         const newData = [...data];
         const index = newData.findIndex((task) => task._id === incData._id);
         if (index >= 0) {
