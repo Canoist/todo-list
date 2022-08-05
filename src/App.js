@@ -77,6 +77,8 @@ function App() {
         ? []
         : data;
 
+    let isHandlerDragging = false;
+
     return (
         <div className="wrapper">
             <div className="content">
@@ -99,7 +101,39 @@ function App() {
                                 setCurrent={handleSelectTask}
                             />
                         )}
-                        <span className="handler-resize"></span>
+                        <span
+                            onMouseMove={(e) => {
+                                if (!isHandlerDragging) {
+                                    return false;
+                                }
+
+                                const wrapper =
+                                    e.target.closest(".flex-nowrap");
+                                const taskList = wrapper.querySelector(
+                                    ".list-group-wrapper"
+                                );
+                                const containerOffsetLeft = wrapper.offsetLeft;
+
+                                const pointerRelativeXpos =
+                                    e.clientX - containerOffsetLeft;
+                                const boxAminWidth = 110;
+
+                                taskList.style.width =
+                                    Math.max(
+                                        boxAminWidth,
+                                        pointerRelativeXpos - 8
+                                    ) + "px";
+                                taskList.style.flexGrow = 0;
+                            }}
+                            onMouseDown={({ target }) => {
+                                if (target.className === "handler-resize") {
+                                    isHandlerDragging = true;
+                                }
+                            }}
+                            onMouseUp={() => {
+                                isHandlerDragging = false;
+                            }}
+                            className="handler-resize"></span>
                         {currentTask ? (
                             <TaskDesc
                                 currentTask={currentTask}

@@ -19,17 +19,21 @@ const TaskDesc = ({ currentTask, onChange, onDelete }) => {
     };
 
     return (
-        <form style={{ margin: "0.5rem" }} onSubmit={handleSubmit}>
+        <form
+            style={{ margin: "0.5rem", flex: "1 1 auto" }}
+            onSubmit={handleSubmit}>
             <label htmlFor="taskName" className="form-label">
                 Название задачи
             </label>
-            <input
+            <textarea
                 id="taskName"
                 type="text"
                 className="form-control"
                 placeholder="name"
                 onChange={handleChange}
                 value={inputName}
+                rows={3}
+                style={{ width: "100%" }}
             />
             <div className="flex-end">
                 <button

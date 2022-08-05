@@ -8,7 +8,7 @@ const TaskList = ({ currentTask, taskList, setCurrent }) => {
     return (
         <div className="list-group-wrapper">
             <ol className="list-group list-group-numbered">
-                {taskList.map((task, index) => (
+                {taskList.map((task) => (
                     <li
                         key={task._id}
                         id={task._id}
