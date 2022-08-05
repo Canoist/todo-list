@@ -15,20 +15,24 @@ const AddTask = ({ onAdd }) => {
     };
 
     return (
-        <form className="" onSubmit={handleSubmit}>
-            <textarea
-                className="form-control"
-                placeholder="Add task..."
-                onChange={handleChange}
-                value={inputValue}
-                rows="3"
-            />
-            <button
-                className="btn btn-success"
-                type="submit"
-                onClick={handleSubmit}>
-                Создать задачу
-            </button>
+        <form onSubmit={handleSubmit}>
+            <div className="input-group">
+                <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Add task..."
+                    onChange={handleChange}
+                    value={inputValue}
+                    aria-describedby="button-addon2"
+                />
+                <button
+                    className="btn btn-success"
+                    type="button"
+                    id="button-addon2"
+                    onClick={handleSubmit}>
+                    Создать задачу
+                </button>
+            </div>
         </form>
     );
 };

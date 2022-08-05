@@ -32,16 +32,23 @@ const TaskDesc = ({ currentTask, onChange, onDelete }) => {
                     onChange={handleChange}
                     value={inputName}
                 />
-                <button type="submit" onClick={handleSubmit}>
-                    Сохранить
-                </button>
+                <div className="flex-end">
+                    <button
+                        className="btn btn-primary"
+                        type="button"
+                        style={{ marginRight: "0.5rem" }}
+                        onClick={handleSubmit}>
+                        Сохранить
+                    </button>
+                    <button
+                        className="btn btn-danger"
+                        onClick={() => {
+                            onDelete(currentTask._id);
+                        }}>
+                        Delete
+                    </button>
+                </div>
             </form>
-            <button
-                onClick={() => {
-                    onDelete(currentTask._id);
-                }}>
-                Delete
-            </button>
         </div>
     );
 };

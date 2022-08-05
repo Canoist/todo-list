@@ -87,20 +87,22 @@ function App() {
                     value={inputValue}
                 />
                 <AddTask onAdd={handleAddTask} />
-                {!!data.length && (
-                    <TaskList
-                        taskList={filteredTasks}
-                        currentTask={currentTask}
-                        setCurrent={handleSelectTask}
-                    />
-                )}
-                {currentTask && (
-                    <TaskDesc
-                        currentTask={currentTask}
-                        onChange={handleChange}
-                        onDelete={handleDelete}
-                    />
-                )}
+                <div>
+                    {!!data.length && (
+                        <TaskList
+                            taskList={filteredTasks}
+                            currentTask={currentTask}
+                            setCurrent={handleSelectTask}
+                        />
+                    )}
+                    {currentTask && (
+                        <TaskDesc
+                            currentTask={currentTask}
+                            onChange={handleChange}
+                            onDelete={handleDelete}
+                        />
+                    )}
+                </div>
             </div>
         </div>
     );
