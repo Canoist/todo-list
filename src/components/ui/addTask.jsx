@@ -20,7 +20,7 @@ const AddTask = ({ onAdd }) => {
                 <input
                     type="text"
                     className="form-control"
-                    placeholder="Add task..."
+                    placeholder="Добавить задачу..."
                     onChange={handleChange}
                     value={inputValue}
                     aria-describedby="button-addon2"

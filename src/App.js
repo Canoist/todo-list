@@ -87,7 +87,7 @@ function App() {
                     <input
                         type="text"
                         className="form-control"
-                        placeholder="Search..."
+                        placeholder="Поиск..."
                         onChange={handleSearch}
                         value={inputValue}
                     />
@@ -144,7 +144,7 @@ function App() {
                         ) : (
                             !!data.length && (
                                 <p style={{ margin: "0.5rem" }}>
-                                    Выберете задачу из списка
+                                    Выберете задачу из списка для редактирования
                                 </p>
                             )
                         )}

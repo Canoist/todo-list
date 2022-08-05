@@ -20,15 +20,17 @@ const TaskList = ({ currentTask, taskList, setCurrent }) => {
                         onClick={handleClick}>
                         <span
                             className={
-                                "badge " + currentTask?.status === "wait"
+                                "badge " +
+                                (task.status === "wait"
                                     ? "badge-wait"
-                                    : currentTask?.status === "atWork"
+                                    : task.status === "atWork"
                                     ? "badge-at-work"
-                                    : currentTask?.status === "done"
+                                    : task.status === "done"
                                     ? "badge-done"
-                                    : ""
-                            }
-                        />
+                                    : "")
+                            }>
+                            <span className="hidden-badge">Hidden</span>
+                        </span>
                         {task.name}
                     </li>
                 ))}
